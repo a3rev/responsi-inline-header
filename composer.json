@@ -1,0 +1,21 @@
+{
+    "name": "a3rev/responsi-inline-header",
+    "description": "Coming Soon",
+    "authors": [
+        {
+            "name": "a3rev Software",
+            "email": "admin@a3rev.com"
+        }
+    ],
+    "config": {
+        "optimize-autoloader": true
+    },
+    "require": {
+        "php": ">=5.6|>=7.0"
+    },
+    "autoload": {
+        "psr-4": {
+          "A3Rev\\RIH\\": [ "src/", "admin/", "upgrade", "classes", "customize" ]
+        }
+    }
+}

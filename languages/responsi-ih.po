@@ -1,0 +1,84 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Responsi Inline Header\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-01-15 11:46+0700\n"
+"PO-Revision-Date: 2020-01-15 11:46+0700\n"
+"Last-Translator: Nguyen Cong Tuan <mr.nguyencongtuan@gmail.com>\n"
+"Language-Team: \n"
+"Language: en_GB\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;__ngettext:1,2;_n:1,2;__ngettext_noop:1,2;"
+"_n_noop:1,2;_c,_nc:4c,1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;_nx_noop:4c,1,2\n"
+"X-Poedit-Basepath: ../\n"
+"X-Textdomain-Support: yes\n"
+"X-Generator: Poedit 1.6.9\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: admin/responsi-ih-admin.php:39
+msgid "Inline Header Customize Menu"
+msgstr ""
+
+#: admin/responsi-ih-init.php:5
+msgid "Opencart"
+msgstr ""
+
+#: admin/responsi-ih-init.php:6
+msgid "Plus"
+msgstr ""
+
+#: admin/responsi-ih-init.php:8
+msgid "Arrow down"
+msgstr ""
+
+#: admin/responsi-ih-init.php:10
+msgid "Shopping"
+msgstr ""
+
+#: admin/responsi-ih-init.php:12
+msgid "Luggage"
+msgstr ""
+
+#: admin/responsi-ih-init.php:14
+msgid "Basket"
+msgstr ""
+
+#: admin/responsi-ih-init.php:15
+msgid "Bag"
+msgstr ""
+
+#: admin/responsi-ih-init.php:82 customize/customize.php:77
+msgid "Settings"
+msgstr ""
+
+#: classes/responsi-ih-frontend.php:86
+msgid "Responsi Inline Header"
+msgstr ""
+
+#: classes/responsi-ih-frontend.php:86
+msgid "Widgetized header"
+msgstr ""
+
+#: classes/responsi-ih-frontend.php:132
+msgid "View your shopping cart"
+msgstr ""
+
+#: classes/responsi-ih-frontend.php:250
+msgid "Click add widget to area."
+msgstr ""
+
+#: customize/customize.php:63
+msgid "Inline Header"
+msgstr ""
+
+#: responsi-ih.php:38
+#, php-format
+msgid ""
+"This is a plugin for Responsi Framework, you need to install <a href=\"%s\" "
+"target=\"_blank\" rel=\"noopener\">Responsi Framework</a> theme from "
+"WordPress first before can activate this."
+msgstr ""

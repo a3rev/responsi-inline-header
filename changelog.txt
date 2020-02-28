@@ -1,0 +1,6 @@
+*** Responsi Inline Header ***
+
+= 1.0.0 - 2020/02/28 =
+* Initial release of the script
+* Created Github private repo and initial commit 
+* Add database and configure for download from a3 Dashboard for install and auto updates and support
