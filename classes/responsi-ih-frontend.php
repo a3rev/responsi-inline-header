@@ -203,9 +203,9 @@ if( !function_exists('responsi_ih_frontend') ){
                                                 responsi_dynamic_sidebar('rih-1' );
                                         }elseif( is_customize_preview() ){
                                             ?>
-                                            <div class="widget ih-none-widget">
+                                            <!-- <div class="widget ih-none-widget">
                                                 <a href="tel:+008433337777"><i class="fa fa-phone"></i> <span class="phonenumber">+00 84 3333 7777</span></a>
-                                            </div>
+                                            </div> -->
                                             <?php
                                         }
                                         ?>
@@ -226,11 +226,11 @@ if( !function_exists('responsi_ih_frontend') ){
                                                 responsi_dynamic_sidebar('rih-2' );
                                         }elseif( is_customize_preview() ){
                                             ?>
-                                            <div class="widget ih-none-widget">
+                                            <!-- <div class="widget ih-none-widget">
                                                 <a href="#"><i class="fa fa-linkedin"></i></a>
                                                 <a href="#"><i class="fa fa-facebook"></i></a>
                                                 <a href="#"><i class="fa fa-youtube"></i></a>
-                                            </div>
+                                            </div> -->
                                             <?php
                                         }
                                         ?>
