@@ -3,7 +3,7 @@ Contributors: a3rev Software team
 Tags: Responsi, WordPress Header
 Requires at least: 5.3
 Tested up to: 5.3.2
-Stable tag: 1.0.0
+Stable tag: 1.1.0
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -22,4 +22,4 @@ This Responsi Theme Framework plugin adds a single line header that has Logo | N
 * 2 Layout options in mobile
 
 = Future Features =
-We consider release 1.0.0 to be a Beta release and a good foundation on which to build new features into the plugin.
+We consider release 1.1.0 to be a Beta release and a good foundation on which to build new features into the plugin.

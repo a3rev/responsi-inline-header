@@ -442,6 +442,20 @@ class Customizer
             )
         );
 
+        $_controls_settings['responsi_ih_sitetitle_mobile_font'] = array(
+            'control' => array(
+                'label' => __('Site Title Font', 'responsi'),
+                'section'    => 'ih_settings',
+                'settings'   => 'multiple',
+                'type'       => 'typography',
+            ),
+            'setting' => array(
+                'default'       => isset($responsi_options_ih['responsi_ih_sitetitle_mobile_font']) ? $responsi_options_ih['responsi_ih_sitetitle_mobile_font'] : array('size' => '16','line_height' => '1.5','face' => 'Open Sans','style' => 'normal','color' => '#ffffff'),
+                'sanitize_callback' => 'responsi_sanitize_typography',
+                'transport' => 'postMessage'
+            )
+        );
+
         $_controls_settings['responsi_ih_mobile_scroll'] = array(
             'control' => array(
                 'label' => __('Header non Sticky', 'responsi-ih'),

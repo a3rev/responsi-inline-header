@@ -1,5 +1,13 @@
 *** Responsi Inline Header ***
 
+= 1.1.0 - 2020/03/05 =
+* This feature release adds enhanced Site Tile font control in mobiles and a fix for 2 PHP warnings
+* Feature - add font Controller for Site Title in mobile
+* Feature - Hide mobile menu icon when no site menu is set
+* Tweak - Tweak Menu compatibility with Responsi Framework
+* Fix - Update global ${$option} to $GLOBALS[$option] to resolve 7.0+ PHP warnings
+* Fix - Site Title font controller setting not applying in customizer Preview or frontend
+
 = 1.0.0 - 2020/02/28 =
 * Initial release of the script
 * Created Github private repo and initial commit 

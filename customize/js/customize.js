@@ -288,6 +288,10 @@
 				css += 'text-align: '+wp.customize.value('responsi_ih_widget2_alignment_mobile')()+';';
 			css += '}';
 
+			css += '.ih-area .logo-ctn a.site-title, .ih-area .logo-ctn a.site-title:hover, .ih-area .logo-ctn a:link:hover, .ih-area .site-title, .ih-area a.site-title:link, .ih-area a.site-title:hover, .ih-area a.site-title:link:hover{';
+				css += _cFn.renderTypo('responsi_ih_sitetitle_mobile_font', true);
+			css += '}';
+
             if( wp.customize.value('responsi_ih_column_mobile[col]')() == 4 ){
 
 		        css += '.ih-mobile-0 #ih-area-1{';
@@ -422,7 +426,8 @@
         'responsi_font_desc',
         'responsi_font_header_widget_title',
         'responsi_font_header_widget_text',
-        'responsi_font_header_widget_link'
+        'responsi_font_header_widget_link',
+        'responsi_ih_sitetitle_mobile_font'
     ];
 
 	var single_fields = [
@@ -569,6 +574,16 @@
 
     $.each(bg_fields, function(inx, val) {
         $.each(ctrlBG, function(i, v) {
+            wp.customize(val + '[' + v + ']', function(value) {
+                value.bind(function(to) {
+                    responsi_ih_preview();
+                });
+            });
+        });
+    });
+
+    $.each(fonts_fields, function(inx, val) {
+        $.each(window.ctrlFonts, function(i, v) {
             wp.customize(val + '[' + v + ']', function(value) {
                 value.bind(function(to) {
                     responsi_ih_preview();

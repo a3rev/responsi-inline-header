@@ -1,6 +1,5 @@
-.ih-ctn .logo-ctn a, .ih-ctn .logo-ctn a:hover {
-  line-height: 100% !important;
-  font-size: 100% !important;
+.ih-ctn .logo-ctn a img{
+  display: flex;
 }
 
 /**/
