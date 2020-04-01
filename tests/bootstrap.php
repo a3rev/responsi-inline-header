@@ -70,8 +70,8 @@ function _manually_load_plugin() {
 
 	echo esc_html( 'Loading addons' . PHP_EOL );
 	require dirname( dirname( __FILE__ ) ) . '/responsi-ih.php';
-	update_option('a3rev_responsi_header_extender_version', RESPONSI_IH_VERSION );
-    update_option('responsi_header_extender_installed', true);
+	update_option('a3rev_responsi_ih_version', RESPONSI_IH_VERSION );
+    update_option('responsi_ih_installed', true);
 }
 
 tests_add_filter( 'muplugins_loaded', '_manually_load_plugin' );
@@ -83,7 +83,7 @@ function _manual_install_data() {
 	}
 
 	echo esc_html( 'Installing My Plugin Data ...' . PHP_EOL );
-	responsi_header_extender_upgrade_version();
+	responsi_ih_upgrade_version();
 
 	define( 'WP_UNINSTALL_PLUGIN', true );
 
