@@ -69,7 +69,7 @@ function _manually_load_plugin() {
 	require_once ( responsi_dir().'/functions/admin-functions.php' );
 
 	echo esc_html( 'Loading addons' . PHP_EOL );
-	require dirname( dirname( __FILE__ ) ) . '/responsi-header-extender.php';
+	require dirname( dirname( __FILE__ ) ) . '/responsi-ih.php';
 	update_option('a3rev_responsi_header_extender_version', RESPONSI_IH_VERSION );
     update_option('responsi_header_extender_installed', true);
 }
