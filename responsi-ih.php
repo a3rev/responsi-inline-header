@@ -44,10 +44,12 @@ function responsi_ih_activate_validate() {
 
 register_activation_hook(__FILE__,'responsi_ih_activate_validate');
 
-if ( !file_exists( get_theme_root().'/responsi/functions.php' ) ) return;
-if ( !isset( $_POST['wp_customize'] ) && get_option('template') != 'responsi' ) return;
-if ( isset( $_POST['wp_customize'] ) && $_POST['wp_customize'] == 'on' && isset( $_POST['theme'] ) && stristr( $_POST['theme'], 'responsi' ) === FALSE ) return;
-if ( version_compare(get_option('responsi_framework_version'), '6.9.5', '<') ) return;
+if( !defined( 'RESPONSI_IH_TRAVIS' ) ){
+	if ( !file_exists( get_theme_root().'/responsi/functions.php' ) ) return;
+	if ( !isset( $_POST['wp_customize'] ) && get_option('template') != 'responsi' ) return;
+	if ( isset( $_POST['wp_customize'] ) && $_POST['wp_customize'] == 'on' && isset( $_POST['theme'] ) && stristr( $_POST['theme'], 'responsi' ) === FALSE ) return;
+	if ( version_compare(get_option('responsi_framework_version'), '6.9.5', '<') ) return;
+}
 
 if ( version_compare( PHP_VERSION, '5.6.0', '>=' ) ) {
 	require __DIR__ . '/vendor/autoload.php';

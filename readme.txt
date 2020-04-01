@@ -2,7 +2,7 @@
 Contributors: a3rev Software team
 Tags: Responsi, WordPress Header
 Requires at least: 5.3
-Tested up to: 5.3.2
+Tested up to: 5.4
 Stable tag: 1.1.0
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
