@@ -1,4 +1,8 @@
 #customize-control-responsi_font_header_widget_text_alignment,
 #customize-control-lb981,
+#customize-control-lb986,
 #customize-control-responsi_header_widget_mobile_margin,
 #customize-control-responsi_header_widget_mobile_margin_between { display: none !important; }
+#accordion-section-header_widgets.hext-hidden, .customize-pane-parent li#accordion-panel-header_settings_panel{
+	display: list-item !important;
+}
