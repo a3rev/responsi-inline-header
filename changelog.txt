@@ -1,5 +1,12 @@
 *** Responsi Inline Header ***
 
+= 1.1.3 - 2020/06/19 =
+* This maintenance release is for compatibility with Responsi Framework v 7.9.4 and Responsi Developer Tools v 2.1.0
+* Tweak - CSS for compatibility with Responsi Framework v 7.9.4
+* Tweak - JS for compatibility with Responsi Framework v 7.9.4
+* Tweak - CSS for compatibility with Responsi Developer Tools v 2.1.0
+* Tweak - JS for compatibility with Responsi Developer Tools v 2.1.0
+
 = 1.1.2 - 2020/04/24 =
 * This maintenance release is for compatibility with the major dev upgrade of Responsi version 7.9.0.
 * Tweak - Tested for compatibility with Responsi version 7.9.0

@@ -16,6 +16,7 @@ class Main {
 		add_action( 'wp_enqueue_scripts',  array( $this, 'customize_preview_inline_style'), 11 );
 		add_action( 'customize_save_after', array( $this, 'responsi_customize_save_options') );
 		add_action( 'responsi_build_dynamic_css_success', array( $this,'_do_dynamic_css') );
+		add_filter( 'responsi-animate', array( $this, 'responsi_animate'), 10 );
 
 		add_action( 'responsi_wrapper_header_before', array( $this, 'ih_ob_start'), 12 );
 		add_action( 'responsi_wrapper_header_after', array( $this, 'ih_ob_clean'), 99 );
@@ -29,10 +30,34 @@ class Main {
         ), 11);
 	}
 
+	public function responsi_animate( $responsi_animate ){
+		
+		if( true != $responsi_animate ){
+
+			global $responsi_options_ih;
+			
+			$animateOpLists = array(
+	        	'responsi_ih_animation',
+		    );
+
+		    if( is_array( $animateOpLists ) && count( $animateOpLists ) > 0 ){
+		    	foreach ( $animateOpLists as $value) {
+		    		if( isset( $responsi_options_ih[ $value ] ) && is_array( $responsi_options_ih[ $value ] ) ){
+		    			if( isset( $responsi_options_ih[ $value ]['type'] ) && $responsi_options_ih[ $value ]['type'] != 'none' ){
+		    				$responsi_animate = true;
+		    			}
+		    		}
+		    	}
+		    }
+		}
+
+		return $responsi_animate;
+	}
+
 	public function customize_controls_enqueue_scripts()
     {
         $suffix = defined('SCRIPT_DEBUG') && SCRIPT_DEBUG ? '' : '.min';
-        wp_enqueue_script( 'responsi-ih-customize', RESPONSI_IH_URL . '/customize/js/customize.logic' . $suffix . '.js', array( 'jquery', 'customize-controls' ), '1.1.2', 1 );
+        wp_enqueue_script( 'responsi-ih-customize', RESPONSI_IH_URL . '/customize/js/customize.logic' . $suffix . '.js', array( 'jquery', 'customize-controls' ), '1.1.3', 1 );
     }
 
 	public function _add_filter_default_settings_options(){

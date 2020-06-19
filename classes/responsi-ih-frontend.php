@@ -4,7 +4,7 @@ if ( ! function_exists( 'responsi_ih_register_styles' ) ){
     function responsi_ih_register_styles( $styles ){
         global $responsi_version;
         $suffix = defined('SCRIPT_DEBUG') && SCRIPT_DEBUG ? '' : '.min';
-        $styles->add( 'responsi-ih', RESPONSI_IH_CSS_URL . '/responsi-ih'.$suffix.'.css', array(), $responsi_version, 'screen' );    
+        $styles->add( 'responsi-ih', RESPONSI_IH_CSS_URL . '/responsi-ih'.$suffix.'.css', array(), $responsi_version, 'all' );    
     }
 }
 add_action( 'wp_default_styles', 'responsi_ih_register_styles' );
