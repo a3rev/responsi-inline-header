@@ -57,7 +57,7 @@ class Main {
 	public function customize_controls_enqueue_scripts()
     {
         $suffix = defined('SCRIPT_DEBUG') && SCRIPT_DEBUG ? '' : '.min';
-        wp_enqueue_script( 'responsi-ih-customize', RESPONSI_IH_URL . '/customize/js/customize.logic' . $suffix . '.js', array( 'jquery', 'customize-controls' ), '1.1.3', 1 );
+        wp_enqueue_script( 'responsi-ih-customize', RESPONSI_IH_URL . '/customize/js/customize.logic' . $suffix . '.js', array( 'jquery', 'customize-controls' ), '1.1.4', 1 );
     }
 
 	public function _add_filter_default_settings_options(){
@@ -333,20 +333,15 @@ class Main {
 	    $responsi_header_widget_text_alignment  = isset( $responsi_options['responsi_font_header_widget_text_alignment'] ) ? esc_attr( $responsi_options['responsi_font_header_widget_text_alignment'] ) : 'left';
 	    
 	   
+	    $header_padding_css = '';
+	    $header_padding_css .= 'padding-top:' . $header_padding_top . 'px;padding-bottom:' . $header_padding_bottom . 'px;';
+	    $header_padding_css .= 'padding-left:' . $header_padding_left . 'px;padding-right:' . $header_padding_right . 'px;';
+	    
 	    $header_css = '';
-	    $header_css .= 'margin-top:' . $header_margin_top . 'px;margin-bottom:' . $header_margin_bottom . 'px;';
-	    $header_css .= 'margin-left:' . $header_margin_left . 'px;margin-right:' . $header_margin_right . 'px;';
-	    $header_css .= 'padding-top:' . $header_padding_top . 'px;padding-bottom:' . $header_padding_bottom . 'px;';
-	    $header_css .= 'padding-left:' . $header_padding_left . 'px;padding-right:' . $header_padding_right . 'px;';
 	    $header_css .= responsi_generate_background_color( $header_bg );
 	    if ( 'true' === $enable_header_bg_image && '' !== trim( $header_bg_image ) ) {
 	        $header_css .= 'background-image:url("' . $header_bg_image . '");background-position:' . strtolower($responsi_bg_header_position_horizontal) . ' ' . strtolower($responsi_bg_header_position_vertical) . ';background-repeat:' . $header_bg_image_repeat . ';';
 	    }
-	    $header_css .= responsi_generate_border($header_border_top, 'border-top');
-	    $header_css .= responsi_generate_border($header_border_bottom, 'border-bottom');
-	    $header_css .= responsi_generate_border($header_border_lr, 'border-left');
-	    $header_css .= responsi_generate_border($header_border_lr, 'border-right');
-	    $header_css .= $header_box_shadow;
 	    
 	    $header_inner_css = '';
 	    $header_inner_css .= responsi_generate_background_color( $header_inner_bg );
@@ -364,10 +359,10 @@ class Main {
 	    $header_inner_css .= $header_inner_box_shadow;
 
 	    $out_plus 		= ( $header_inner_margin_top + $header_inner_margin_bottom + $header_inner_padding_top + $header_inner_padding_bottom + $header_inner_border_top['width'] + $header_inner_border_bottom['width'] );
-	    $in_plus  		= ( $header_margin_top + $header_margin_bottom + $header_padding_top + $header_padding_bottom + $header_border_top['width'] + $header_border_bottom['width'] );
+	    $in_plus  		= ( $header_padding_top + $header_padding_bottom );
 
-	    $corner_top 	= ( $header_inner_margin_top + $header_inner_padding_top + $header_inner_border_top['width'] + $header_margin_top + $header_padding_top + $header_border_top['width'] );
-	    $corner_right	= ( $header_inner_margin_right + $header_inner_padding_right + $header_inner_border_lr['width'] + $header_margin_right + $header_padding_right + $header_border_lr['width'] );
+	    $corner_top 	= ( $header_inner_margin_top + $header_inner_padding_top + $header_inner_border_top['width'] + $header_padding_top );
+	    $corner_right	= ( $header_inner_margin_right + $header_inner_padding_right + $header_inner_border_lr['width'] + $header_padding_right );
 
         $responsi_ih_width 						= $responsi_options_ih['responsi_ih_width'];
         $responsi_ih_max 						= $responsi_options_ih['responsi_ih_max'];
@@ -623,8 +618,13 @@ class Main {
 
 		$output = '
 
+		.ih-layout{
+			' . $header_css . '
+		}
+
 		.ih-ctn{
 			' . $header_css . '
+			' . $header_padding_css . '
 		}
 
 		.ih-content-wrap{
@@ -667,8 +667,9 @@ class Main {
 			.ih-sticky .ih-content{
 				height: '.$responsi_ih_min.'px;
 			}
-			.ih-sticky1,.hasSticky #ih-layout {
-			  	margin-bottom: '.( $responsi_ih_max + $in_plus + $out_plus ).'px;
+
+			#ih-layout.ihSticky{
+				min-height:'.( $responsi_ih_max + $in_plus + $out_plus ).'px;
 			}
 
 			.ih-area-widget1{
@@ -701,8 +702,9 @@ class Main {
 			.ih-sticky .ih-content{
 				height: '.$responsi_ih_min_tablet.'px;
 			}
-			.ih-sticky1,.hasSticky #ih-layout:not(.ih-tablet-nonsticky) {
-			  	margin-bottom: '.( $responsi_ih_max_tablet + $in_plus + $out_plus ).'px;
+
+			#ih-layout:not(.ih-tablet-nonsticky).ihSticky{
+				min-height:'.( $responsi_ih_max_tablet + $in_plus + $out_plus ).'px;
 			}
 			'.$tablet_css.'
 
@@ -752,9 +754,10 @@ class Main {
             .ih-sticky .ih-content{
                 height: '.$responsi_ih_min_mobile.'px;
             }
-            .ih-sticky1,.hasSticky #ih-layout:not(.ih-mobile-nonsticky) {
-                margin-bottom: '.( $responsi_ih_max_mobile + $in_plus + $out_plus ).'px;
-            }
+
+            #ih-layout:not(.ih-mobile-nonsticky).ihSticky{
+				min-height:'.( $responsi_ih_max_mobile + $in_plus + $out_plus ).'px;
+			}
             '.$mobile_css.'
             
 			.ih-layout:not(.ihSticky) .stickyMenu{

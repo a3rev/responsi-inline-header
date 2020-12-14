@@ -35,6 +35,7 @@ if ( ! function_exists( 'responsi_ih_load_javascript' ) ){
         global $responsi_options_ih;
         $responsi_ih_paramaters =  array(
             '_position'         => isset( $responsi_options_ih['responsi_ih_position'] ) ? $responsi_options_ih['responsi_ih_position'] : 'false',
+            '_animation_speed'  => isset( $responsi_options_ih['responsi_ih_animation_speed'] ) ? $responsi_options_ih['responsi_ih_animation_speed'] : 3,
         );
         did_action( 'init' ) && wp_localize_script( 'responsi-ih', 'responsi_ih_paramaters', $responsi_ih_paramaters );
         wp_enqueue_script( 'responsi-ih' );

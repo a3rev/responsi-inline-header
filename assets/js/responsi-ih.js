@@ -2,9 +2,12 @@
 
 	window.ihPos = false;
 
+	window.ihAnimationSpeed = 0
+
 	if (typeof responsi_ih_paramaters !== 'undefined') {
 		if (typeof responsi_ih_paramaters._position !== 'undefined') {
-			window.ihPos = responsi_ih_paramaters._position;
+			window.ihPos 			= responsi_ih_paramaters._position;
+			window.ihAnimationSpeed = parseInt( parseInt(responsi_ih_paramaters._animation_speed) - 0.1 + '00' )  ;
 		}
 	}
 
@@ -39,40 +42,36 @@
 	  	}
 	};
 
+	// When the user scrolls the page, execute myFunction
+	window.onscroll = function() {
+		//window.ihFunction()
+	};
+
 	window.ihFunction = function() {
 		if (window.location.href.indexOf("test") <= -1) {
 
 			var styleTop = 0;
-			window.inToolbar = window.elHeaderMain.querySelectorAll(".ih-layout");
-			//document.getElementById( 'ih-layout' ).style.height = window.elHeaderCtn.clientHeight +'px';
-
-			if( window.inToolbar.length > 0 ){
+			window.inToolbar = document.getElementById( 'responsi-toolbar' ).querySelector(".ih-layout");
+				
+			
+	
+			if( window.inToolbar != null && window.inToolbar.length > 0 ){
 				styleTop = window.responsiToolbarHeight ;
 			}else{
 				styleTop = window.wpAdminbarHeight + window.responsiToolbarHeight + window.elAboveHeaderHeight;
 			}
-			
+
 			if( 'true' == window.ihPos || true == window.ihPos ){
+			  	
+			  	var offsetTopMain = window.elSticky + window.responsiToolbarHeight + window.elAboveHeaderHeight2 + window.wpAdminbarHeight2;
 
-				//$('.ih-area #main-nav').css({top: ( window.ihNavPositon(styleTop) ) });
-
-			  	document.querySelector('.ih-ctn').addEventListener('transitionstart', () => {
-				  	//$('.ih-area #main-nav').css({top: ( window.ihNavPositon(styleTop) ) });
-				});
-
-				document.querySelector('.ih-ctn').addEventListener('transitionend', () => {
-				  	//$('.ih-area #main-nav').css({top: ( window.ihNavPositon(styleTop) ) });
-				});
-
-			  	if ( window.pageYOffset > ( window.elSticky - window.responsiToolbarHeight ) ) {
+			  	if ( document.body.scrollTop > offsetTopMain || document.documentElement.scrollTop > offsetTopMain ) {
 			    	window.elHeaderCtn.style.top = parseInt(styleTop) +'px';
 			    	window.elHeaderCtn.classList.add("ih-sticky");
-			    	//window.elHeaderMain.classList.add("ih-hasSticky");
 			    	window.elBody.classList.add("hasSticky");
 			  	} else {
-			  		//window.elHeaderMain.classList.remove("ih-hasSticky");
+			  		window.elBody.classList.remove("hasSticky");
 					window.elHeaderCtn.classList.remove("ih-sticky");
-					window.elBody.classList.remove("hasSticky");
 			  	}
 
 			  	if ( document.querySelector(".ih-ctn").classList.contains("ih-mobile-nonsticky") || document.querySelector(".ih-ctn").classList.contains("ih-tablet-nonsticky") ) {
@@ -86,7 +85,9 @@
 		}
 	}
 
-	$(window).on( 'scroll load resize', function() {
+	window.onscroll = function() { window.ihFunction(); };
+
+	$(window).on( 'load resize', function() {
 
 		window.elBody 					= ( document.getElementsByTagName('body')[0] );
 		window.elMenu 					= ( document.getElementById( 'ih-area-2' ) && document.getElementById( 'ih-area-2' ).innerHTML.length ) ? document.getElementById( 'ih-area-2' ) : null;
@@ -101,10 +102,12 @@
 		window.elSticky 				= window.elHeaderMain.offsetTop;
 
 		window.wpAdminbarHeight 		= ( window.elAdminbar != null ) && ( window.getComputedStyle(window.elAdminbar).getPropertyValue('position').toLowerCase() == 'fixed' ) ? window.elAdminbar.clientHeight : 0;
+		window.wpAdminbarHeight2 		= ( window.elAdminbar != null ) && ( window.getComputedStyle(window.elAdminbar).getPropertyValue('position').toLowerCase() != 'fixed' ) ? window.elAdminbar.clientHeight : 0;
 		window.responsiToolbarHeight 	= window.elToolbar != null ? window.elToolbar.clientHeight : 0;
 		window.elAboveHeaderHeight 		= ( window.elAboveHeaderCtn != null ) && ( window.getComputedStyle(window.elAboveHeaderCtn).getPropertyValue('position').toLowerCase() == 'fixed' ) ? window.elAboveHeaderCtn.clientHeight : 0;
+		window.elAboveHeaderHeight2 	= ( window.elAboveHeaderCtn != null ) && ( window.getComputedStyle(window.elAboveHeaderCtn).getPropertyValue('position').toLowerCase() != 'fixed' ) ? window.elAboveHeaderCtn.clientHeight : 0;
 
-		window.ihFunction();
+		
 	});
 
 })(jQuery);

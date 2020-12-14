@@ -1,5 +1,10 @@
 *** Responsi Inline Header ***
 
+= 1.1.4 - 2020/12/14 =
+* This maintenance release has a fix for the sticky header resizing flash plus compatibility with WordPress major version 5.6 
+* Tweak - Test for compatibility with WordPress 5.6
+* Fix - Header set to sticky always flash when scroll back to the top and the logo resizes
+
 = 1.1.3 - 2020/06/19 =
 * This maintenance release is for compatibility with Responsi Framework v 7.9.4 and Responsi Developer Tools v 2.1.0
 * Tweak - CSS for compatibility with Responsi Framework v 7.9.4
