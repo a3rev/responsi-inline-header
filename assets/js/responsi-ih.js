@@ -70,8 +70,10 @@
 			    	window.elHeaderCtn.classList.add("ih-sticky");
 			    	window.elBody.classList.add("hasSticky");
 			  	} else {
-			  		window.elBody.classList.remove("hasSticky");
-					window.elHeaderCtn.classList.remove("ih-sticky");
+			  		if( typeof window.elBody != "undefined" ){
+			  			window.elBody.classList.remove("hasSticky");
+						window.elHeaderCtn.classList.remove("ih-sticky");
+					}
 			  	}
 
 			  	if ( document.querySelector(".ih-ctn").classList.contains("ih-mobile-nonsticky") || document.querySelector(".ih-ctn").classList.contains("ih-tablet-nonsticky") ) {
