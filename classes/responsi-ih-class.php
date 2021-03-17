@@ -57,7 +57,7 @@ class Main {
 	public function customize_controls_enqueue_scripts()
     {
         $suffix = defined('SCRIPT_DEBUG') && SCRIPT_DEBUG ? '' : '.min';
-        wp_enqueue_script( 'responsi-ih-customize', RESPONSI_IH_URL . '/customize/js/customize.logic' . $suffix . '.js', array( 'jquery', 'customize-controls' ), '1.1.5', 1 );
+        wp_enqueue_script( 'responsi-ih-customize', RESPONSI_IH_URL . '/customize/js/customize.logic' . $suffix . '.js', array( 'jquery', 'customize-controls' ), '1.1.6', 1 );
     }
 
 	public function _add_filter_default_settings_options(){

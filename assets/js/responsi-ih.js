@@ -101,7 +101,7 @@
 
 		window.elAboveHeaderCtn 		= ( document.getElementById( 'responsi-ahw-container' ) && document.getElementById( 'responsi-ahw-container' ).innerHTML.length ) ? document.getElementById( 'responsi-ahw-container' ) : null;
 
-		window.elSticky 				= window.elHeaderMain.offsetTop;
+		window.elSticky 				= ( window.elHeaderMain ) ? window.elHeaderMain.offsetTop : 0;
 
 		window.wpAdminbarHeight 		= ( window.elAdminbar != null ) && ( window.getComputedStyle(window.elAdminbar).getPropertyValue('position').toLowerCase() == 'fixed' ) ? window.elAdminbar.clientHeight : 0;
 		window.wpAdminbarHeight2 		= ( window.elAdminbar != null ) && ( window.getComputedStyle(window.elAdminbar).getPropertyValue('position').toLowerCase() != 'fixed' ) ? window.elAdminbar.clientHeight : 0;
