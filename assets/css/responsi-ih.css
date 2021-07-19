@@ -1,3 +1,6 @@
+.ih-ctn{
+  box-sizing: border-box;
+}
 .ih-ctn .logo-ctn a img{
   display: flex;
 }
