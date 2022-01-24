@@ -37,8 +37,11 @@
 	    	window.elMenu.classList.add("stickyMenu");
 	    	window.elMenu.style.top = parseInt(num) +'px';
 	  	} else {
-	  		window.elMenu.classList.remove("stickyMenu");
-	  		window.elMenu.style.top = 'auto';
+	  		if( window.elMenu != undefined && window.elMenu != 'undefined' ){
+	  			window.elMenu.classList.remove("stickyMenu");
+	  			window.elMenu.style.top = 'auto';
+	  		}
+	  		
 	  	}
 	};
 

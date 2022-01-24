@@ -2,12 +2,12 @@
 /*
 Plugin Name: Responsi Inline Header
 Description: This Responsi Theme Framework plugin adds an Inline Header to the framework. That header includes Logo, Nav Bar plus 2 optional widget areas in a single row.
-Version: 1.1.7
+Version: 1.1.8
 Author: a3rev Software
 Author URI: http://a3rev.com/
 Update URI: a3-responsi-ih
 Requires at least: 4.4
-Tested up to: 5.8
+Tested up to: 5.9
 Text Domain: responsi-ih
 Domain Path: /languages
 License: This software is distributed under the terms of GNU GENERAL PUBLIC LICENSE Version 3, 29 June 2007
@@ -34,7 +34,7 @@ define( 'RESPONSI_IH_JS_URL', RESPONSI_IH_URL . '/assets/js' );
 define( 'RESPONSI_IH_CSS_URL', RESPONSI_IH_URL . '/assets/css' );
 
 define( 'RESPONSI_IH_KEY', 'responsi_ih' );
-define( 'RESPONSI_IH_VERSION', '1.1.7' );
+define( 'RESPONSI_IH_VERSION', '1.1.8' );
 
 function responsi_ih_activate_validate() {
     if ( 'responsi' !== get_template() ) {
@@ -67,7 +67,7 @@ if ( version_compare( PHP_VERSION, '5.6.0', '>=' ) ) {
 add_action( 'after_setup_theme', 'responsi_ih_upgrade_version' );
 function responsi_ih_upgrade_version() {
 
-	if ( version_compare(get_option('a3rev_responsi_ih_version'), '1.1.7') === -1 ) {
+	if ( version_compare(get_option('a3rev_responsi_ih_version'), '1.1.8') === -1 ) {
 		global $responsi_ih;
         $responsi_ih->build_css_after_updated();
 	}

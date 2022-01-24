@@ -1,4 +1,9 @@
-*** Responsi Inline Header ***
+*** Responsi Inline Header Changelog ***
+
+= 1.1.8 - 2022/01/24 =
+* This is a maintenance release for compatibility with WordPress major version 5.9 and Responsi 8.3.1 
+* Tweak - Test for compatibility with WordPress 5.9
+* Tweak - Test for compatibility with Responsi 8.3.1
 
 = 1.1.7 - 2021/07/19 =
 * This maintenance release is for compatibility with WordPress major version 5.8
