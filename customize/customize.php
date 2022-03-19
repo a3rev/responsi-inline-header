@@ -32,7 +32,7 @@ class Customizer
             'customize_controls_enqueue_scripts'
         ), 11);
 
-        add_action( 'customize_controls_print_styles',          array( $this, 'responsi_customize_controls_print_styles' ) );
+        add_action('customize_controls_print_styles', array( $this, 'responsi_customize_controls_print_styles' ));
     }
 
     public function customize_controls_enqueue_scripts()
@@ -50,11 +50,12 @@ class Customizer
         ), '5.3.0', 1);
     }
 
-    public function responsi_customize_controls_print_styles() {
+    public function responsi_customize_controls_print_styles()
+    {
         global $wp_version, $responsi_version;
         $suffix = defined('SCRIPT_DEBUG') && SCRIPT_DEBUG ? '' : '.min';
         $rtl = is_rtl() ? '.rtl' : '';
-        wp_enqueue_style( 'ih-customize', RESPONSI_IH_URL . '/customize/css/customize' . $suffix . '.css', array(), null, 'screen' );
+        wp_enqueue_style('ih-customize', RESPONSI_IH_URL . '/customize/css/customize' . $suffix . '.css', array(), null, 'screen');
     }
 
     public function global_responsi_settings($options)
@@ -98,11 +99,11 @@ class Customizer
 
     public function controls_settings($controls_settings)
     {
-        $_default = apply_filters( 'default_settings_ih', false );
+        $_default = apply_filters('default_settings_ih', false);
         
-        if( $_default ){
+        if ($_default) {
             $responsi_options_ih = array();
-        }else{
+        } else {
             global $responsi_options_ih;
         }
 
@@ -180,7 +181,7 @@ class Customizer
         $_controls_settings['responsi_ih_width'] = array(
             'control' => array(
                 //'label'      => __('Maximum Content Width', 'responsi-ih'),
-                'description' => __( 'Maximum content width in pixels in large screens.', 'responsi-ih' ),
+                'description' => __('Maximum content width in pixels in large screens.', 'responsi-ih'),
                 'section'    => 'ih_settings',
                 'settings'    => 'responsi_ih_width',
                 'type'       => 'slider',
@@ -654,4 +655,3 @@ class Customizer
         return $controls_settings;
     }
 }
-?>

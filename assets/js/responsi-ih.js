@@ -95,10 +95,7 @@
 		}
 	}
 
-	window.onscroll = function() { window.ihFunction(); };
-
-	$(window).on( 'load resize', function() {
-
+	window.ihFunctionLoad = function() {
 		window.elBody 					= ( document.getElementsByTagName('body')[0] );
 		window.elMenu 					= ( document.getElementById( 'ih-area-2' ) && document.getElementById( 'ih-area-2' ).innerHTML.length ) ? document.getElementById( 'ih-area-2' ) : null;
 
@@ -116,8 +113,11 @@
 		window.responsiToolbarHeight 	= window.elToolbar != null ? window.elToolbar.clientHeight : 0;
 		window.elAboveHeaderHeight 		= ( window.elAboveHeaderCtn != null ) && ( window.getComputedStyle(window.elAboveHeaderCtn).getPropertyValue('position').toLowerCase() == 'fixed' ) ? window.elAboveHeaderCtn.clientHeight : 0;
 		window.elAboveHeaderHeight2 	= ( window.elAboveHeaderCtn != null ) && ( window.getComputedStyle(window.elAboveHeaderCtn).getPropertyValue('position').toLowerCase() != 'fixed' ) ? window.elAboveHeaderCtn.clientHeight : 0;
+	}
 
-		
-	});
+	window.addEventListener("load", window.ihFunctionLoad);
+	window.addEventListener("resize", window.ihFunctionLoad);
+	window.addEventListener("scroll", window.ihFunction);
+
 
 })(jQuery);
