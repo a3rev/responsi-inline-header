@@ -1,5 +1,13 @@
 *** Responsi Inline Header Changelog ***
 
+= 1.2.0 - 2022/12/14 =
+* This feature release is a performance release as it removes the font-awesome Lib and replaces it with SVG icons.
+* Feature - Replace font-awesome icons with SVGs
+* Tweak - Remove css font-awesome.css folder now not used
+* Tweak - Remove font folder font-awesome now not used
+* Tweak - Test for compatibility with WordPress 6.1.0
+* Tweak - Test for compatibility with Responsi 8.7
+
 = 1.1.9 - 2022/03/19 =
 * This security release follows a full security audit with code refactoring, security hardening including additional escaping and sanitizing and a JavaScript bug fix.
 * Security - Escape all $-variable

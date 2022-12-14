@@ -24,9 +24,6 @@ if (! function_exists('responsi_ih_register_scripts')) {
     {
         global $responsi_version;
         $suffix = defined('SCRIPT_DEBUG') && SCRIPT_DEBUG ? '' : '.min';
-
-        //$scripts->add( 'fontawesome', RESPONSI_IH_JS_URL . '/all.js', array('jquery' ), '5.9.0', true );
-
         $scripts->add('responsi-ih', RESPONSI_IH_JS_URL . '/responsi-ih'.$suffix.'.js', array('jquery' ), $responsi_version, true);
     }
 }
@@ -193,7 +190,7 @@ if (!function_exists('responsi_ih_frontend')) {
                                     $width = $_ih_col2;
                                     ?>
                                     <div id="ih-area-2" class="ih-area ih-area-menu" style="width:<?php echo esc_attr($width);?>%">
-                                        <?php echo wp_kses_post($shiftclick); ?>
+                                        <?php echo $shiftclick; ?>
                                         <?php responsi_navigation(); ?>
                                     </div>
                                     <?php
@@ -204,7 +201,7 @@ if (!function_exists('responsi_ih_frontend')) {
                                     ?>
                                     <div id="ih-area-3" class="ih-area ih-area-widget ih-area-widget1" style="width:<?php echo esc_attr($width);?>%">
                             
-                                        <?php echo wp_kses_post($shiftclick); ?>
+                                        <?php echo $shiftclick; ?>
 
                                         <?php
                                         if (responsi_active_sidebar('rih-1')) {
@@ -227,7 +224,7 @@ if (!function_exists('responsi_ih_frontend')) {
                                     ?>
                                     <div id="ih-area-4" class="ih-area ih-area-widget ih-area-widget2" style="width:<?php echo esc_attr($width);?>%">
                             
-                                        <?php echo wp_kses_post($shiftclick); ?>
+                                        <?php echo $shiftclick; ?>
 
                                         <?php
                                         if (responsi_active_sidebar('rih-2')) {

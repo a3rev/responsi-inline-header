@@ -667,6 +667,10 @@ class Main
 				min-height:'.( $responsi_ih_max + $in_plus + $out_plus ).'px;
 			}
 
+            .hasSticky #ih-layout.ihSticky{
+                min-height:'.( $responsi_ih_min + $in_plus + $out_plus ).'px;
+            }
+
 			.ih-area-widget1{
 				text-align:'.$responsi_ih_widget1_alignment.';
 			}
@@ -813,9 +817,9 @@ class Main
                 }
             } else {
                 if (is_child_theme()) {
-                    wp_add_inline_style('responsi-theme', get_theme_mod('ih_custom_css'));
+                    wp_add_inline_style('responsi-theme', $this->responsi_build_dynamic_css(true));
                 } else {
-                    wp_add_inline_style('responsi-framework', get_theme_mod('ih_custom_css'));
+                    wp_add_inline_style('responsi-framework', $this->responsi_build_dynamic_css(true));
                 }
             }
         }
